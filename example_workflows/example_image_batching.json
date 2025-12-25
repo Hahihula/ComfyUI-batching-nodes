@@ -1,0 +1,76 @@
+{
+  "last_node_id": 4,
+  "last_link_id": 2,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "BatchImageLoaderNode",
+      "pos": [100, 150],
+      "size": { "0": 450, "1": 250 },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "outputs": [
+        { "name": "images", "type": "IMAGE", "links": [1] },
+        { "name": "filenames", "type": "STRING", "links": null },
+        { "name": "count", "type": "INT", "links": null }
+      ],
+      "title": "Batch Images (Folder Loader)",
+      "properties": {},
+      "widgets_values": [
+        "/opt/comfyui/input",
+        "png,jpg,jpeg,webp,bmp",
+        "name",
+        0,
+        0
+      ]
+    },
+    {
+      "id": 2,
+      "type": "PreviewImage",
+      "pos": [650, 150],
+      "size": { "0": 400, "1": 300 },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [{ "name": "images", "type": "IMAGE", "link": 1 }],
+      "title": "Preview Images",
+      "properties": {}
+    },
+    {
+      "id": 3,
+      "type": "Note",
+      "pos": [100, 450],
+      "size": { "0": 450, "1": 180 },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "title": "How to Use",
+      "properties": { "text": "" },
+      "widgets_values": [
+        "This example workflow demonstrates Batch Images node.\n\n1. Set folder_path to your image folder (default is ComfyUI/input)\n2. Adjust image_extensions if needed (supports png,jpg,jpeg,webp,bmp,gif)\n3. Choose sorting: 'name', 'modified', or 'created'\n4. Use start_index to skip first N images\n5. Use max_images to limit batch (0 = all images)\n\nThe node will load all matching images and output them as a batch.\nComfyUI will automatically process each image through your workflow!"
+      ],
+      "bgcolor": "#353"
+    },
+    {
+      "id": 4,
+      "type": "Note",
+      "pos": [650, 500],
+      "size": { "0": 400, "1": 130 },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "title": "Next Steps",
+      "properties": { "text": "" },
+      "widgets_values": [
+        "To complete this workflow, replace PreviewImage with your processing:\n\n• VAE Encode (if using img2img)\n• Your processing nodes (upscale, denoise, etc.)\n• VAE Decode (if you encoded)\n• Save Image (to save processed images)\n\nThe batch will process automatically!"
+      ],
+      "bgcolor": "#335"
+    }
+  ],
+  "links": [[1, 1, 0, 2, 0, "IMAGE"]],
+  "groups": [],
+  "config": {},
+  "extra": {},
+  "version": 0.4
+}

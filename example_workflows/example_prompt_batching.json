@@ -1,0 +1,409 @@
+{
+  "id": "92112d97-bb64-4b44-86f2-ea5691ef8f6e",
+  "revision": 0,
+  "last_node_id": 67,
+  "last_link_id": 103,
+  "nodes": [
+    {
+      "id": 7,
+      "type": "CLIPTextEncode",
+      "pos": [505.0233024140434, 546.4708609205534],
+      "size": [509.34375, 177.359375],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 44
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [6]
+        }
+      ],
+      "title": "CLIP Text Encode (Negative Prompt)",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.75",
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": ["blurry ugly bad"],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 11,
+      "type": "ModelSamplingAuraFlow",
+      "pos": [608.6125142370327, 70.77646811200427],
+      "size": [378, 112],
+      "flags": {},
+      "order": 7,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 42
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "slot_index": 0,
+          "links": [47]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.75",
+        "Node name for S&R": "ModelSamplingAuraFlow"
+      },
+      "widgets_values": [3]
+    },
+    {
+      "id": 13,
+      "type": "EmptySD3LatentImage",
+      "pos": [638.0001588099217, 745.999925244222],
+      "size": [378, 180],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "slot_index": 0,
+          "links": [17]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.75",
+        "Node name for S&R": "EmptySD3LatentImage"
+      },
+      "widgets_values": [1280, 720, 1]
+    },
+    {
+      "id": 28,
+      "type": "PreviewImage",
+      "pos": [1467.5559425776787, 267.5277257182161],
+      "size": [988.71875, 1485.75],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 52
+        }
+      ],
+      "outputs": [],
+      "title": "Z-image Turbo",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.75",
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 3,
+      "type": "KSampler",
+      "pos": [1037.6003331819052, 225.1999828188859],
+      "size": [378, 354],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 47
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 4
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 6
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 17
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "slot_index": 0,
+          "links": [51]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.75",
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [233110297544224, "fixed", 8, 1, "euler", "simple", 1]
+    },
+    {
+      "id": 6,
+      "type": "CLIPTextEncode",
+      "pos": [505.9999466063632, 229.99996768060308],
+      "size": [513.46875, 296.265625],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 94
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": 103
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [4]
+        }
+      ],
+      "title": "CLIP Text Encode (Positive Prompt)",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.75",
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [""],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 16,
+      "type": "UNETLoader",
+      "pos": [110.53589044785349, 67.73198342384666],
+      "size": [324, 146],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [42]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.75",
+        "Node name for S&R": "UNETLoader"
+      },
+      "widgets_values": ["z_image_turbo_bf16.safetensors", "default"]
+    },
+    {
+      "id": 18,
+      "type": "CLIPLoader",
+      "pos": [107.27989971468878, 532.4282805029217],
+      "size": [324, 180],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [44, 94]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.75",
+        "Node name for S&R": "CLIPLoader"
+      },
+      "widgets_values": ["qwen_3_4b.safetensors", "lumina2", "default"]
+    },
+    {
+      "id": 8,
+      "type": "VAEDecode",
+      "pos": [1438.9559530747233, 108.1941009091291],
+      "size": [252, 102],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 51
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 45
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [52]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.75",
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 17,
+      "type": "VAELoader",
+      "pos": [87.47386154969854, 739.2958941029169],
+      "size": [324, 112],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [45]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.75",
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": ["ae.safetensors"]
+    },
+    {
+      "id": 65,
+      "type": "PromptLoopNode",
+      "pos": [-475.34569171249996, 48.37570985766439],
+      "size": [480, 246],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "prompts_list",
+          "shape": 6,
+          "type": "STRING",
+          "links": [103]
+        },
+        {
+          "name": "count",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "title": "Batch Text (Prompt Loop)",
+      "properties": {
+        "Node name for S&R": "PromptLoopNode"
+      },
+      "widgets_values": [
+        "a majestic dragon flying over mountains, fantasy art\na serene lake at sunset, photorealistic\na bustling cyberpunk city at night, neon lights\na peaceful forest in autumn, oil painting style",
+        "\n",
+        true
+      ]
+    },
+    {
+      "id": 66,
+      "type": "Note",
+      "pos": [-727.8570203104671, 360.8808101010053],
+      "size": [1080, 130],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Tips",
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "• Use different delimiters: ',' for comma-separated, '|' for pipe-separated, or '\\n' for newline-separated\n• Enable skip_empty to ignore blank lines\n• The count output shows how many prompts were generated\n• Combine with Batch Images node to process prompts × images in a matrix!"
+      ],
+      "color": "#432",
+      "bgcolor": "#553"
+    },
+    {
+      "id": 67,
+      "type": "Note",
+      "pos": [-495.0451570641145, -151.30523438824582],
+      "size": [480, 180],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "How to Use",
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "This example workflow demonstrates Batch Text node.\n\n1. Enter multiple prompts (one per line) in the Batch Text node\n2. Connect to your CLIP Text Encode\n3. Complete your workflow as normal (add checkpoint, sampler, VAE, etc.)\n4. Queue the workflow - it will generate one image per prompt automatically!\n\nThe node will output a list of prompts that ComfyUI processes in batch mode."
+      ],
+      "color": "#432",
+      "bgcolor": "#353"
+    }
+  ],
+  "links": [
+    [4, 6, 0, 3, 1, "CONDITIONING"],
+    [6, 7, 0, 3, 2, "CONDITIONING"],
+    [17, 13, 0, 3, 3, "LATENT"],
+    [42, 16, 0, 11, 0, "MODEL"],
+    [44, 18, 0, 7, 0, "CLIP"],
+    [45, 17, 0, 8, 1, "VAE"],
+    [47, 11, 0, 3, 0, "MODEL"],
+    [51, 3, 0, 8, 0, "LATENT"],
+    [52, 8, 0, 28, 0, "IMAGE"],
+    [94, 18, 0, 6, 0, "CLIP"],
+    [103, 65, 0, 6, 1, "STRING"]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.0152559799477459,
+      "offset": [1427.693357445464, 489.08537488706696]
+    },
+    "frontendVersion": "1.34.9",
+    "workflowRendererVersion": "Vue",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
